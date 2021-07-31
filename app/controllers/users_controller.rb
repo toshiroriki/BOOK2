@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  protect_from_forgery
   def show
  @user = User.find(params[:id])
  @book = Book.new
@@ -15,7 +14,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
   def update
-    binding.pry
     @user = User.find(params[:id])
     if @user.update(user_params)
       flash[:notice] = 'You have updated user successfully.'
